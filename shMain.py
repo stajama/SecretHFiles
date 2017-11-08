@@ -20,7 +20,7 @@ numOfPlayers = input("Number of Players: ")
 try:
    numOfPlayers = int(numOfPlayers) 
 except Exception as e:
-    raise TypeError("Asshole Error: ...looks like someone is a bell-end...")
+    raise TypeError("Numbers only, closing...")
 if numOfPlayers < 5:
     raise ValueError("Need more players. Time to make some friends, I guess...")
 elif numOfPlayers > 10:
@@ -63,7 +63,7 @@ while keepPlaying:
     try:
         start = int(start) - 1
     except:
-        print("FAIL, you suck")
+        print("Bad input, closing...")
         break
     orderList = []
     for i in range(len(game.playerList)):
@@ -102,5 +102,5 @@ while keepPlaying:
     if continuePlay in "No no n N NO gawd, please stop":
         keepPlaying = False
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
