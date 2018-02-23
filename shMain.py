@@ -24,7 +24,7 @@ except Exception as e:
 if numOfPlayers < 5:
     raise ValueError("Need more players. Time to make some friends, I guess...")
 elif numOfPlayers > 10:
-    raise ValueError("Too many players. Somebodies going to have to sit one out...")
+    raise ValueError("Too many players. Somebody's going to have to sit one out...")
 
 
 def testFauxPlayerSetup(numberOfPlayers):
@@ -56,8 +56,8 @@ keepPlaying = True
 print("-" * 79)
 while keepPlaying:
     game = GameState(playerList)
-    logging.debug("game variable: type-" + str(type(game)))
-    logging.debug("game playerList" + str(game.playerList))
+    # logging.debug("game variable: type-" + str(type(game)))
+    # logging.debug("game playerList" + str(game.playerList))
     print(str([(x, game.playerList[x].name) for x in range(len(game.playerList))]))
     start = input("Whose up first?: ")
     try:
@@ -74,7 +74,8 @@ while keepPlaying:
     setUpMatch(game)
     # for testing
     for player in game.playerList:
-        print(player.name, player.party, player.role, player.alive)
+        logging.debug('Player Info: ' +  player.name + ', ' +  player.party +
+		', ' +  player.role + ', ' + 'IsAlive-' + str(player.alive))
     game.setUpPolicyDeck()
     while True:
         logging.debug("Showing policyCounter(): " + str(policyCounter(game)) + ' ' + str(type(policyCounter(game))))
